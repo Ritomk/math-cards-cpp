@@ -123,15 +123,28 @@ MathCards/
 
 ---
 
-## Evolution
+## Evolution — From C++ Prototype to Unity Thesis
 
-This C++ prototype served as a proof of concept for the core game mechanics. It was later expanded into a full-featured Unity project as part of an **engineering thesis**, featuring:
-- 3D card visuals and animations
-- Multiplayer support
-- Expanded card types and abilities
-- Polished UI/UX
+This project served as the **proof of concept** that validated the core game mechanics — RPN-based combat, the sabotage system, and AI expression optimization. The lessons learned here directly shaped the architecture of the full Unity version, developed as an **engineering thesis**.
 
-**[Check out the Unity version →](https://github.com/Ritomk/math-cards)**
+### What carried over (and scaled up)
+| C++ Prototype | Unity Version |
+|---|---|
+| Stack-based state machine (3 states) | Generic dual state machine — `StateMachine<TStateEnum>` with 8 game states + 10 player states, coroutine transitions, queue-based processing, and state history with rollback |
+| Recursive RPN combo generator | Async expression optimizer (`Task.Run()`) with backtracking, running off the main thread |
+| AI sabotage (place `−`/`÷` on player's table) | Full behaviour tree (NodeCanvas) with probabilistic sabotage, escalating chance, and adaptive attack/defense priorities |
+| `Parser::RpnEval` stack evaluator | `RpnExpressionHelper` with multiple evaluation modes + animated card-by-card RPN visualization |
+| Direct function calls between systems | ScriptableObject event bus (7 event channels) — fully decoupled, inspector-wired architecture |
+
+### What's new in Unity
+- **3D environment** — cards, tables, and chests as 3D models with custom materials
+- **6 custom ShaderGraph shaders** — dissolve, highlight rain, distortion, dithering post-process
+- **Card merge mechanic** — combine two cards in an animated chest to create multi-digit numbers (e.g., `8` + `9` → `89`)
+- **Spline-based hand layout** — cards fan along a configurable Unity Spline with duplicate grouping
+- **Custom coroutine framework** — centralized `CoroutineHelper` with pause/resume, ID tracking, and `WaitForSecondsPauseable`
+- **Unity Input System** — action maps with hold interactions and context-sensitive state filtering
+
+**[Check out the Unity version →](https://github.com/Ritomk/math-cards-unity)**
 
 ---
 

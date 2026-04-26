@@ -1,0 +1,29 @@
+# Visual Studio junk
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+MathCards/x64/
+MathCards/Debug/
+MathCards/Release/
+
+# Intermediate build files
+*.obj
+*.pch
+*.tlog
+*.lastbuildstate
+*.idb
+*.pdb
+*.ilk
+*.iobj
+*.ipdb
+*.vsidx
+*.suo
+*.user
+
+# Executables
+*.exe
+
+# Keep DLLs and External libs
+!*.dll
+!External/

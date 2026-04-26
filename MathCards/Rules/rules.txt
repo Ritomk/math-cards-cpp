@@ -1,0 +1,15 @@
+			MathCards Rules
+1. The player has two tables: attack and defense, similarly to the opponent
+2. The player can place cards on his tables (attack and defense)
+   with mathematical symbols or numbers
+3. The cards are placed on the table in Reverse Polish Notation (RPN)
+4. The damage dealt to the opponent is the difference between the value
+   on the player's attack table and the opponent's defense table
+5. The player can place any cards on their table, while on the opponent's table
+   only symbols
+6. If the equation on the opponent's defense table is not written in RPN,
+   the opponent deals double damage
+7. The game ends when both players run out of cards, and the player with
+   the most health or the one who reduces the opponent's health to 0 wins
+   or by most deafult when 10 round hits and player with most hp wins.
+
